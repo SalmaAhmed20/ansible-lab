@@ -1,0 +1,11 @@
+- name: copy
+  template:
+    src: "../templates/{{item}}"
+    dest: /remote/
+  loop: "{{list}}"
+  notify: restarthandler
+
+- name: restarthandler
+  service:
+    name: "{{package_name}}"
+    state: restarted

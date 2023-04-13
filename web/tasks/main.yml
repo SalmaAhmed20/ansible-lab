@@ -1,0 +1,8 @@
+- name: httpd install
+  package: 
+      name: "{{package_name}}"
+      state: present
+  notify: 
+    - copy_template
+
+
